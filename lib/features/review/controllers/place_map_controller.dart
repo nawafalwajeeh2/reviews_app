@@ -102,41 +102,6 @@ class PlacesMapController extends GetxController {
     _initializeApp();
   }
 
-  // /// Initialize map style based on current theme
-  // void _initializeMapStyle() {
-  //   try {
-  //     // Get current theme mode from Get
-  //     final brightness = Get.isDarkMode ? Brightness.dark : Brightness.light;
-  //     final dark = brightness == Brightness.dark;
-
-  //     isDarkMode.value = dark;
-  //     currentMapStyle = dark ? MapStyles.darkMapStyle : MapStyles.lightMapStyle;
-
-  //     AppLoggerHelper.info(
-  //       'Map style initialized: ${dark ? "dark" : "light"} mode',
-  //     );
-  //   } catch (e) {
-  //     AppLoggerHelper.error('Error initializing map style: $e');
-  //     // Fallback to light mode
-  //     currentMapStyle = MapStyles.lightMapStyle;
-  //   }
-  // }
-
-  // /// Initialize map style - FORCE LIGHT MODE ALWAYS
-  // void _initializeMapStyle() {
-  //   try {
-  //     // FORCE LIGHT MODE ALWAYS - regardless of system theme
-  //     isDarkMode.value = false;
-  //     currentMapStyle.value = MapStyles.lightMapStyle;
-
-  //     AppLoggerHelper.info('Map style initialized: FORCED LIGHT MODE');
-  //   } catch (e) {
-  //     AppLoggerHelper.error('Error initializing map style: $e');
-  //     // Fallback to light mode
-  //     currentMapStyle.value = MapStyles.lightMapStyle;
-  //   }
-  // }
-
   Future<void> _initializeApp() async {
     isLoading.value = true;
 
@@ -1398,36 +1363,6 @@ class PlacesMapController extends GetxController {
       _zoomToBounds(currentDirections.value!.routes[index].bounds);
     }
   }
-
-  // --- MAP STYLING ---
-
-  /// Update map style based on theme mode
-  // Future<void> updateMapStyle(bool dark) async {
-  //   try {
-  //     isDarkMode.value = dark;
-  //     currentMapStyle = dark ? MapStyles.darkMapStyle : MapStyles.lightMapStyle;
-
-  //     if (googleMapController != null) {
-  //       // await googleMapController!.setMapStyle(currentMapStyle);
-  //       await googleMapController!.setMapStyle(currentMapStyle);
-  //       AppLoggerHelper.info(
-  //         'Map style updated to ${dark ? 'dark' : 'light'} mode',
-  //       );
-  //     }
-  //   } catch (e) {
-  //     AppLoggerHelper.error('Error updating map style: $e');
-  //   }
-  // }
-
-  // /// Update map style - ALWAYS USE LIGHT MODE
-  // Future<void> updateMapStyle(bool dark) async {
-  //   // Force light mode regardless of parameter
-  //   isDarkMode.value = false;
-  //   currentMapStyle.value = MapStyles.lightMapStyle;
-  //   AppLoggerHelper.info('Map style updated to LIGHT MODE (forced, reactive)');
-  // }
-
-  // --- SEARCH FILTERS ---
 
   /// Set distance radius filter
   void setDistanceRadius(double? radiusInMeters) {

@@ -566,7 +566,6 @@ class PlaceRepository extends GetxController {
       debugPrint('🗑️  Deleting place: ${place.title}');
 
       final placeId = place.id;
-      final categoryId = place.categoryId;
 
       // Create batch for atomic deletion
       final batch = _db.batch();
